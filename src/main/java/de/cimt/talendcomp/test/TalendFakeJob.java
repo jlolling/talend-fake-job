@@ -41,4 +41,19 @@ public class TalendFakeJob {
 	protected boolean execStat = false;
 	protected String iterateId = "";
 	protected java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+	protected static String utf8Charset = "UTF-8";
+
+	protected boolean globalResumeTicket = true;
+	protected String resumeEntryMethodName = null;
+
+	public static void main(String[] args) {
+		TalendFakeJob job = new TalendFakeJob();
+		job.start();
+	}
+	
+	public void start() {
+		// to be overwritten in sub classes!
+	}
+	
 }
