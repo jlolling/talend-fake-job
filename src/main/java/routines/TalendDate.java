@@ -20,11 +20,9 @@ package routines;
 import java.text.DateFormat;
 import java.text.FieldPosition;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import routines.system.FastDateParser;
@@ -153,11 +151,11 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> isDate("2008-11-24 12:15:25", "yyyy-MM-dd HH:mm:ss") return true
+     * isDate("2008-11-24 12:15:25", "yyyy-MM-dd HH:mm:ss") return true
      * 
-     * ->> isDate("2008-11-24 12:15:25", "yyyy-MM-dd HH:mm") return false
+     * isDate("2008-11-24 12:15:25", "yyyy-MM-dd HH:mm") return false
      * 
-     * ->> isDate("2008-11-32 12:15:25", "yyyy-MM-dd HH:mm:ss") return false #
+     * isDate("2008-11-32 12:15:25", "yyyy-MM-dd HH:mm:ss") return false #
      */
     public static boolean isDate(String stringDate, String pattern) {
 
@@ -185,17 +183,17 @@ public class TalendDate {
     }
     /**
      * test string value as a date with right pattern.
-     * </br>examples:
-     * </br>TimeZone:+0100
-     * </br>2011/03/27 01:00:00 begin to carry out the daylight saving time. So parse dateString "20110327 021711"
+     * examples:
+     * TimeZone:+0100
+     * 2011/03/27 01:00:00 begin to carry out the daylight saving time. So parse dateString "20110327 021711"
      * with TimeZone is wrong
-     * </br> <code>isDate("20110327 021711", "yyyyMMdd HHmmss",false)</code> return <code>false</code>
+     *  <code>isDate("20110327 021711", "yyyyMMdd HHmmss",false)</code> return <code>false</code>
      * 
-     * </br> <code>isDate("20110327 021711", "yyyyMMdd HHmmss",true)</code> return <code>true</code>
+     *  <code>isDate("20110327 021711", "yyyyMMdd HHmmss",true)</code> return <code>true</code>
      * 
-     * </br> <code>isDate("2008-11-32 12:15:25", "yyyy-MM-dd HH:mm:ss",true)</code> return <code>false</code> 
+     *  <code>isDate("2008-11-32 12:15:25", "yyyy-MM-dd HH:mm:ss",true)</code> return <code>false</code> 
      * 
-     * </br> <code>isDate("2008-11-32 12:15:25", "yyyy-MM-dd HH:mm:ss",false)</code> return <code>false</code>
+     *  <code>isDate("2008-11-32 12:15:25", "yyyy-MM-dd HH:mm:ss",false)</code> return <code>false</code>
      * @param stringDate (A <code>String</code> whose beginning should be parsed)
      * @param pattern (the pattern to format, like: "yyyy-MM-dd HH:mm:ss")
      * @param ignoreTimeZone (if true ignore TimeZone when pare date with pattern)
@@ -256,11 +254,11 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> compareDate(2008/11/24 12:15:25, 2008/11/24 16:10:35) return -1
+     *  compareDate(2008/11/24 12:15:25, 2008/11/24 16:10:35) return -1
      * 
-     * ->> compareDate(2008/11/24 16:10:35, 2008/11/24 12:15:25) return 1
+     *  compareDate(2008/11/24 16:10:35, 2008/11/24 12:15:25) return 1
      * 
-     * ->> compareDate(2008/11/24 12:15:25, 2008/11/24 16:10:35,"yyyy/MM/dd") return 0 #
+     *  compareDate(2008/11/24 12:15:25, 2008/11/24 16:10:35,"yyyy/MM/dd") return 0 #
      */
     public static int compareDate(Date date1, Date date2, String pattern) {
         if (date1 == null && date2 == null) {
@@ -286,7 +284,7 @@ public class TalendDate {
      * 
      * @param date1 (first date)
      * @param date2 (second date)
-     * @return the result wheather two date is the same, if first one less than second one return number -1, equlas
+     * @return the result whether two date is the same, if first one less than second one return number -1, equlas
      * return number 0, bigger than return number 1. (can compare partly)
      * 
      * {talendTypes} Integer
@@ -324,10 +322,10 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> addDate(dateVariable), 5,"dd") return a date with 2008/11/29 12:15:25 (with dateVariable is a date with
+     *  addDate(dateVariable), 5,"dd") return a date with 2008/11/29 12:15:25 (with dateVariable is a date with
      * 2008/11/24 12:15:25) #
      * 
-     * ->> addDate(2008/11/24 12:15:25, 5,"ss") return 2008/11/24 12:15:30 #
+     *  addDate(2008/11/24 12:15:25, 5,"ss") return 2008/11/24 12:15:30 #
      * 
      */
     public static Date addDate(Date date, int nb, String dateType) {
@@ -362,7 +360,7 @@ public class TalendDate {
     /**
      * add number of day, month ... to a date (with Date given in String with a pattern)
      * 
-     * @param date (a Date given in string)
+     * @param string (a Date given in string)
      * @param pattern (the pattern for the related date)
      * @param nb (the value to add)
      * @param dateType (date pattern = ("yyyy","MM","dd","HH","mm","ss","SSS" ))
@@ -382,9 +380,9 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> addDate("2008/11/24 12:15:25", "yyyy-MM-dd HH:mm:ss", 5,"dd") return "2008/11/29 12:15:25"
+     *  addDate("2008/11/24 12:15:25", "yyyy-MM-dd HH:mm:ss", 5,"dd") return "2008/11/29 12:15:25"
      * 
-     * ->> addDate("2008/11/24 12:15:25", "yyyy/MM/DD HH:MM:SS", 5,"ss") return "2008/11/24 12:15:30" #
+     *  addDate("2008/11/24 12:15:25", "yyyy/MM/DD HH:MM:SS", 5,"ss") return "2008/11/24 12:15:30" #
      * 
      */
     public static String addDate(String string, String pattern, int nb, String dateType) {
@@ -407,8 +405,8 @@ public class TalendDate {
     /**
      * return difference between two dates
      * 
-     * @param Date1 ( first date )
-     * @param Date1 ( second date )
+     * @param date1 ( first date )
+     * @param date2 ( second date )
      * @param dateType value=("yyyy","MM","dd","HH","mm","ss","SSS") for type of return
      * @return a number of years, months, days ... date1 - date2
      * 
@@ -424,11 +422,11 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> diffDate(2008/11/24 12:15:25, 2008/10/14 16:10:35, "yyyy") : return 0
+     *  diffDate(2008/11/24 12:15:25, 2008/10/14 16:10:35, "yyyy") : return 0
      * 
-     * ->> diffDate(2008/11/24 12:15:25, 2008/10/14 16:10:35, "MM") : return 1
+     *  diffDate(2008/11/24 12:15:25, 2008/10/14 16:10:35, "MM") : return 1
      * 
-     * ->> diffDate(2008/11/24 12:15:25, 2008/10/14 16:10:35, "dd") : return 41 #
+     *  diffDate(2008/11/24 12:15:25, 2008/10/14 16:10:35, "dd") : return 41 #
      */
     public static long diffDate(Date date1, Date date2, String dateType) {
         return diffDate(date1, date2, dateType, false);
@@ -437,10 +435,10 @@ public class TalendDate {
     /**
      * return difference between two dates
      * 
-     * @param Date1 ( first date )
-     * @param Date1 ( second date )
+     * @param date1 ( first date )
+     * @param date2 ( second date )
      * @param dateType value=("yyyy","MM","dd","HH","mm","ss","SSS") for type of return
-     * @param ignoreDST
+     * @param ignoreDST if true ignore day light saving time offset
      * @return a number of years, months, days ... date1 - date2
      * 
      * {talendTypes} Long
@@ -455,9 +453,9 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00, "dd", true) : return 2 not 1 in GMT+1#
+     *  diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00, "dd", true) : return 2 not 1 in GMT+1#
      * 
-     * ->> diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00, "dd", false) : return 1 not 2 in GMT+1#
+     *  diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00, "dd", false) : return 1 not 2 in GMT+1#
      */
     public static long diffDate(Date date1, Date date2, String dateType, boolean ignoreDST) {
 
@@ -517,8 +515,8 @@ public class TalendDate {
     /**
      * return difference between two dates ignore DST
      * 
-     * @param Date1 ( first date )
-     * @param Date1 ( second date )
+     * @param date1 ( first date )
+     * @param date2 ( second date )
      * @param dateType value=("yyyy","MM","dd","HH","mm","ss","SSS") for type of return
      * @return a number of years, months, days ... date1 - date2
      * 
@@ -534,7 +532,7 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00, "dd") : return 2 not 1 in GMT+1#
+     *  diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00, "dd") : return 2 not 1 in GMT+1#
      */
     public static long diffDateIgnoreDST(Date date1, Date date2, String dateType) {
         return diffDate(date1, date2, dateType, true);
@@ -543,8 +541,8 @@ public class TalendDate {
     /**
      * return difference between two dates ignore DST
      * 
-     * @param Date1 ( first date )
-     * @param Date1 ( second date )
+     * @param date1 ( first date )
+     * @param date2 ( second date )
      * @return a number of years, months, days ... date1 - date2
      * 
      * {talendTypes} Long
@@ -559,7 +557,7 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00) : return 2 not 1 in GMT+1#
+     *  diffDate(2012/03/26 00:00:00, 2012/03/24 00:00:00) : return 2 not 1 in GMT+1#
      */
     public static long diffDateIgnoreDST(Date date1, Date date2) {
         return diffDateIgnoreDST(date1, date2, "dd");
@@ -568,8 +566,8 @@ public class TalendDate {
     /**
      * return difference between two dates by floor
      * 
-     * @param Date1 ( first date )
-     * @param Date1 ( second date )
+     * @param date1 ( first date )
+     * @param date2 ( second date )
      * @param dateType value=("yyyy","MM") for type of return
      * @return a number of years, months (date1 - date2)
      * 
@@ -585,9 +583,9 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> diffDate(2009/05/10, 2008/10/15, "yyyy") : return 0
+     *  diffDate(2009/05/10, 2008/10/15, "yyyy") : return 0
      * 
-     * ->> diffDate(2009/05/10, 2008/10/15, "MM") : return 6
+     *  diffDate(2009/05/10, 2008/10/15, "MM") : return 6
      */
     public static int diffDateFloor(Date date1, Date date2, String dateType) {
         if (date1 == null) {
@@ -634,8 +632,8 @@ public class TalendDate {
     /**
      * return difference between two dates
      * 
-     * @param Date1 ( first date )
-     * @param Date1 ( second date )
+     * @param date1 ( first date )
+     * @param date2 ( second date )
      * @return a number of years, months, days ... date1 - date2
      * 
      * {talendTypes} Long
@@ -723,11 +721,11 @@ public class TalendDate {
      * 
      * {examples}
      * 
-     * ->> setDate(2008/11/24 12:15:25, 2010, "yyyy") return 2010/11/24 12:15:25
+     *  setDate(2008/11/24 12:15:25, 2010, "yyyy") return 2010/11/24 12:15:25
      * 
-     * ->> setDate(2008/11/24 12:15:25, 01, "MM") return 2008/01/24 12:15:25
+     *  setDate(2008/11/24 12:15:25, 01, "MM") return 2008/01/24 12:15:25
      * 
-     * ->> setDate(2008/11/24 12:15:25, 15, "dd") return 2008/11/15 12:15:25 #
+     *  setDate(2008/11/24 12:15:25, 15, "dd") return 2008/11/15 12:15:25 #
      */
     public static Date setDate(Date date, int nb, String dateType) {
         if (date == null || dateType == null) {
@@ -763,7 +761,7 @@ public class TalendDate {
      * 
      * @param pattern the pattern to format.
      * @param date the time value to be formatted into a time string.
-     * @param locale the locale whose date format symbols should be used.
+     * @param languageOrCountyCode the locale whose date format symbols should be used.
      * @return the formatted time string.
      * 
      * {talendTypes} String
@@ -791,8 +789,6 @@ public class TalendDate {
      * @param pattern the pattern to parse.
      * @param stringDate A <code>String</code> whose beginning should be parsed.
      * @return A <code>Date</code> parsed from the string.
-     * @throws ParseException
-     * @exception ParseException if the beginning of the specified string cannot be parsed.
      * 
      * {talendTypes} Date
      * 
@@ -817,8 +813,6 @@ public class TalendDate {
      * @param stringDate A <code>String</code> whose beginning should be parsed.
      * @param isLenient A <code>boolean</code>judge DateFormat parse the date Lenient or not.
      * @return A <code>Date</code> parsed from the string.
-     * @throws ParseException
-     * @exception ParseException if the beginning of the specified string cannot be parsed.
      * 
      * {talendTypes} Date
      * 
@@ -872,10 +866,8 @@ public class TalendDate {
      * 
      * @param pattern the pattern to parse.
      * @param stringDate A <code>String</code> whose beginning should be parsed.
-     * @param locale the locale whose date format symbols should be used.
+     * @param languageOrCountyCode the locale whose date format symbols should be used.
      * @return A <code>Date</code> parsed from the string.
-     * @throws ParseException
-     * @exception ParseException if the beginning of the specified string cannot be parsed.
      * 
      * {talendTypes} Date
      * 
@@ -902,7 +894,8 @@ public class TalendDate {
      * getDate : return the current datetime with the given display format format : (optional) string representing the
      * wished format of the date. This string contains fixed strings and variables related to the date. By default, the
      * format string is DD/MM/CCYY. Here is the list of date variables:
-     * 
+     * @param pattern the pattern to format the current date
+     * @return current date as String
      * 
      * {talendTypes} String
      * 
@@ -937,7 +930,7 @@ public class TalendDate {
 
     /**
      * getDate : return the current date
-     * 
+     * @return current date
      * 
      * 
      * {talendTypes} Date
@@ -952,7 +945,9 @@ public class TalendDate {
 
     /**
      * return an ISO formatted random date
-     * 
+     * @param minDate start of the random range
+     * @param maxDate end of the random range
+     * @return random date
      * 
      * {talendTypes} Date
      * 
@@ -962,7 +957,8 @@ public class TalendDate {
      * 
      * {param} string("2008-12-31") max : maximum date (superior to min)
      * 
-     * {example} getRandomDate("1981-01-18", "2005-07-24") {example} getRandomDate("1980-12-08", "2007-02-26")
+     * {example} getRandomDate("1981-01-18", "2005-07-24") 
+     * {example} getRandomDate("1980-12-08", "2007-02-26")
      */
     public static Date getRandomDate(String minDate, String maxDate) {
         if (minDate == null) {
@@ -1000,186 +996,4 @@ public class TalendDate {
         return new Date(random);
     }
 
-    /**
-     * 
-     * Method used for tests only.
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-
-        // test_formatDate();
-        // test_isDate();
-        // test_getRandomDate();
-        // System.out.println(getPartOfDate("DAY_OF_WEEK_IN_MONTH", parseDate("yyyy-MM-dd", "2010-12-26")));
-        // System.out.println(getPartOfDate("WEEK_OF_MONTH", parseDate("yyyy-MM-dd", "2010-12-26")));
-
-        System.out.println(TalendDate.diffDateFloor(TalendDate.parseDate("yyyy/MM/dd hh:mm:ss.SSS", "2011/05/10 14:15:16.788"),
-                TalendDate.parseDate("yyyy/MM/dd hh:mm:ss.SSS", "2010/05/10 14:15:16.789"), "MM"));
-    }
-
-    /**
-     * 
-     * Testcase:
-     * <p>
-     * getRandomDate(String minDate, String maxDate)
-     * </p>
-     */
-    public static void test_getRandomDate() {
-        System.out
-                .println("getRandomDate: " + TalendDate.formatDate("yyyy-MM-dd HH:mm:ss", TalendDate.getRandomDate(null, null))); //$NON-NLS-1$
-    }
-
-    /**
-     * 
-     * Testcase:
-     * <p>
-     * compareDate(Date date1, Date date2)
-     * </p>
-     */
-    public static void test_compareDate() {
-        System.out
-                .println("compareDate: " + Boolean.toString(TalendDate.compareDate(new Date(), new Date(System.currentTimeMillis() - 10000)) == 1)); //$NON-NLS-1$
-    }
-
-    /**
-     * 
-     * Testcase:
-     * <p>
-     * isDate(String stringDate, String pattern)
-     * </p>
-     */
-    public static void test_isDate() {
-        System.out.println("isDate: " + Boolean.toString(TalendDate.isDate("2008-11-35 12:15:25", "yyyy-MM-dd HH:mm") == false)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$       
-    }
-    
-    /**
-     * format date to mssql 2008 type datetimeoffset ISO 8601 string with local time zone
-     * format string : yyyy-MM-dd HH:mm:ss.SSSXXX(JDK7 support it)
-     */
-    public static String formatDatetimeoffset(Date date) {
-        String dateString = formatDate("yyyy-MM-dd HH:mm:ss.SSSZ", date);//keep the max precision in java
-        StringBuilder sb = new StringBuilder(30);
-        sb.append(dateString);
-        sb.insert(dateString.length()-2,':');
-        return sb.toString();
-    }
-
-    /**
-     * 
-     * Testcase:
-     * <p>
-     * formatDate(String pattern, java.util.Date date)
-     * </p>
-     * <p>
-     * formatDateLocale(String pattern, java.util.Date date, String languageOrCountyCode)
-     * </p>
-     */
-    public static void test_formatDate() {
-        final int LOOPS = 100000;
-        final String dateTimeRef_Test1 = "1979-03-23 mars 12:30";
-        Thread test1 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1979, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDate("yyyy-MM-dd MMM HH:mm", dateCalendar);
-                    // System.out.println("Test1:" + date + " # " + dateTimeRef_Test1);
-                    if (!dateTimeRef_Test1.equals(date)) {
-                        throw new IllegalStateException("Test1: Date ref : '" + dateTimeRef_Test1 + "' is different of '" + date
-                                + "'");
-                    }
-                }
-                System.out.println("test1 ok");
-            }
-        };
-        final String dateTimeRef_Test2 = "1980-03-23 mars 12:30";
-        Thread test2 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1980, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDate("yyyy-MM-dd MMM HH:mm", dateCalendar);
-                    // System.out.println("Test2:" + date + " # " + dateTimeRef_Test2);
-                    if (!dateTimeRef_Test2.equals(date)) {
-                        throw new IllegalStateException("Test2: Date ref : '" + dateTimeRef_Test2 + "' is different of '" + date
-                                + "'");
-                    }
-                }
-                System.out.println("test2 ok");
-            }
-        };
-
-        final String dateTimeRef_Test3 = "1979-03-23 mars 12:30";
-        Thread test3 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1979, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDateLocale("yyyy-MM-dd MMM HH:mm", dateCalendar, "FR");
-                    // System.out.println("Test3:" + date + " # " + dateTimeRef_Test3);
-                    if (!dateTimeRef_Test3.equals(date)) {
-                        throw new IllegalStateException("Test3: Date ref : '" + dateTimeRef_Test3 + "' is different of '" + date
-                                + "'");
-                    }
-                }
-                System.out.println("test3 ok");
-            }
-        };
-        final String dateTimeRef_Test4 = "1980-03-23 Mar 12:30";
-        Thread test4 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1980, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDateLocale("yyyy-MM-dd MMM HH:mm", dateCalendar, "EN");
-                    // System.out.println("Test4:" + date + " # " + dateTimeRef_Test4);
-                    if (!dateTimeRef_Test4.equals(date)) {
-                        throw new IllegalStateException("Test4: Date ref : '" + dateTimeRef_Test4 + "' is different of '" + date
-                                + "'");
-                    }
-                }
-                System.out.println("test4 ok");
-            }
-        };
-
-        final String dateTimeRef_Test5 = "1979-03-23";
-        Thread test5 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1979, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDate("yyyy-MM-dd", dateCalendar);
-                    // System.out.println("Test5:" + date + " # " + dateTimeRef_Test5);
-                    if (!dateTimeRef_Test5.equals(date)) {
-                        throw new IllegalStateException("Test5: Date ref : '" + dateTimeRef_Test5 + "' is different of '" + date
-                                + "'");
-                    }
-
-                }
-                System.out.println("test5 ok");
-            }
-        };
-
-        test1.start();
-        test2.start();
-        test3.start();
-        test4.start();
-        test5.start();
-    }
 }

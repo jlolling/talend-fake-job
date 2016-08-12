@@ -26,6 +26,8 @@ import routines.system.RunStat;
 /**
  * Basis for a Talend test job.
  * It contains most of the necessary stuff what a talend job consists of.
+ * Extend your own JUnit test class from this class in order to have a Talend job environment.
+ * 
  * @author jan.lolling@cimt-ag.de
  *
  */
@@ -49,13 +51,13 @@ public class TalendFakeJob {
 	protected final java.util.Map<String, Long> start_Hash = new java.util.HashMap<String, Long>();
 	protected final java.util.Map<String, Long> end_Hash = new java.util.HashMap<String, Long>();
 	protected final java.util.Map<String, Boolean> ok_Hash = new java.util.HashMap<String, Boolean>();
+	protected final java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 	public final java.util.List<String[]> globalBuffer = new java.util.ArrayList<String[]>();
 
 	protected RunStat runStat = new RunStat();
 
 	protected boolean execStat = false;
 	protected String iterateId = "";
-	protected java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
 	protected static String utf8Charset = "UTF-8";
 
