@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.cimt.talendcomp.test</groupId>
-	<artifactId>talend-fake-job</artifactId>
+	<groupId>de.cimt.talend.mock</groupId>
+	<artifactId>talend-job-mock</artifactId>
 	<version>1.0</version>
 
 	<description>A Mock for a Talend DataIntegration job</description>
-	<url>https://github.com/jlolling/talend-fake-job</url>
+	<url>https://github.com/jlolling/talend-job-mock</url>
 
 	<licenses>
 		<license>
@@ -25,9 +25,9 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git://github.com/jlolling/talend-fake-job.git</connection>
-		<developerConnection>scm:git:ssh://github.com/jlolling/talend-fake-job.git</developerConnection>
-		<url>http://github.com/jlolling/talend-fake-job/tree/master</url>
+		<connection>scm:git:git://github.com/jlolling/talend-job-mock.git</connection>
+		<developerConnection>scm:git:ssh://github.com/jlolling/talend-job-mock.git</developerConnection>
+		<url>http://github.com/jlolling/talend-job-mock/tree/master</url>
 	</scm>
 
 	<properties>

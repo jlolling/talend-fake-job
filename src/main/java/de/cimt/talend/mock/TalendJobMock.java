@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.cimt.talendcomp.test;
+package de.cimt.talend.mock;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,11 +31,11 @@ import routines.system.RunStat;
  * @author jan.lolling@cimt-ag.de
  *
  */
-public class TalendFakeJob {
+public class TalendJobMock {
 
-	protected static Logger log = Logger.getLogger(TalendFakeJob.class);
+	protected static Logger log = Logger.getLogger(TalendJobMock.class);
 
-	public TalendFakeJob() {
+	public TalendJobMock() {
 		BasicConfigurator.configure();
 	}
 
@@ -65,7 +65,7 @@ public class TalendFakeJob {
 	protected String resumeEntryMethodName = null;
 
 	public static void main(String[] args) {
-		TalendFakeJob job = new TalendFakeJob();
+		TalendJobMock job = new TalendJobMock();
 		job.start();
 	}
 	
