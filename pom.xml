@@ -30,6 +30,20 @@
 		<url>http://github.com/jlolling/talend-job-mock/tree/master</url>
 	</scm>
 
+	<repositories>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		      <releases>
+		        <enabled>false</enabled>
+		        <updatePolicy>always</updatePolicy>
+		        <checksumPolicy>warn</checksumPolicy>
+		      </releases>
+			<name>Sonatype Release</name>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
