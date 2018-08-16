@@ -28,7 +28,7 @@ import routines.system.RunStat;
  * It contains most of the necessary stuff what a talend job consists of.
  * Extend your own JUnit test class from this class in order to have a Talend job environment.
  * 
- * @author jan.lolling@cimt-ag.de
+ * @author jan.lolling@gmail.com
  *
  */
 public class TalendJobMock {
